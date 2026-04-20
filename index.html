@@ -5,82 +5,197 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tony's Business Solutions | AI Automation for Tradespeople</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    :root {
+      --blue: #00aaff;
+      --blue-dark: #0077cc;
+      --blue-glow: rgba(0, 170, 255, 0.3);
+      --steel: #c0c8d8;
+      --dark: #080c14;
+      --dark2: #0d1220;
+      --dark3: #111827;
+      --border: rgba(0, 170, 255, 0.2);
+      --text: #e0e8f0;
+      --muted: #7a8aa0;
+    }
+
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background-color: #0f1117;
-      color: #f0f0f0;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--dark);
+      color: var(--text);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     a { text-decoration: none; color: inherit; }
 
-    /* NAV */
+    /* ===== ANIMATED BACKGROUND ===== */
+    .circuit-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse at 20% 20%, rgba(0,100,255,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 80%, rgba(0,170,255,0.04) 0%, transparent 60%);
+    }
+
+    /* ===== NAV ===== */
     nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 40px;
-      background-color: #0f1117;
-      border-bottom: 1px solid #1e2130;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      padding: 14px 40px;
+      background: rgba(8, 12, 20, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
 
-    .logo {
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-logo img {
+      height: 52px;
+      width: auto;
+      filter: drop-shadow(0 0 8px var(--blue-glow));
+    }
+
+    .nav-logo-text {
+      font-family: 'Rajdhani', sans-serif;
       font-size: 20px;
       font-weight: 700;
-      color: #f0a500;
+      color: var(--steel);
+      letter-spacing: 1px;
+      line-height: 1.1;
+    }
+
+    .nav-logo-text span {
+      display: block;
+      font-size: 11px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      color: var(--blue);
+      letter-spacing: 3px;
+      text-transform: uppercase;
     }
 
     .nav-cta {
-      background-color: #f0a500;
-      color: #0f1117;
-      padding: 10px 22px;
+      background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+      color: #fff;
+      padding: 10px 24px;
       border-radius: 6px;
       font-weight: 700;
       font-size: 14px;
-      transition: background 0.2s;
+      letter-spacing: 0.5px;
+      box-shadow: 0 0 16px var(--blue-glow);
+      transition: all 0.2s;
     }
 
-    .nav-cta:hover { background-color: #d4911a; }
+    .nav-cta:hover {
+      box-shadow: 0 0 28px rgba(0,170,255,0.5);
+      transform: translateY(-1px);
+    }
 
-    /* HERO */
+    /* ===== HERO ===== */
     .hero {
+      position: relative;
+      z-index: 1;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 100px 20px 80px;
-      background: linear-gradient(180deg, #0f1117 0%, #151825 100%);
+      padding: 80px 20px;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(0,120,255,0.12) 0%, transparent 70%),
+        linear-gradient(180deg, #080c14 0%, #0d1220 100%);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--blue), transparent);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
+
+    .hero-logo {
+      width: 180px;
+      height: auto;
+      margin: 0 auto 32px;
+      display: block;
+      filter: drop-shadow(0 0 24px rgba(0,170,255,0.4));
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
 
     .hero-badge {
-      display: inline-block;
-      background-color: #1e2130;
-      color: #f0a500;
-      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,170,255,0.1);
+      border: 1px solid var(--border);
+      color: var(--blue);
+      font-size: 12px;
       font-weight: 600;
       padding: 6px 16px;
       border-radius: 20px;
-      margin-bottom: 24px;
-      border: 1px solid #f0a500;
+      margin-bottom: 28px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
 
     .hero h1 {
-      font-size: clamp(32px, 5vw, 62px);
-      font-weight: 800;
-      line-height: 1.15;
-      max-width: 850px;
-      margin: 0 auto 24px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(36px, 6vw, 72px);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      color: #fff;
+      text-shadow: 0 0 40px rgba(0,100,255,0.3);
     }
 
-    .hero h1 span { color: #f0a500; }
+    .hero h1 .accent {
+      color: var(--blue);
+      text-shadow: 0 0 20px var(--blue-glow);
+    }
+
+    .hero h2 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(20px, 3vw, 36px);
+      font-weight: 600;
+      color: var(--steel);
+      margin-bottom: 24px;
+    }
 
     .hero p {
-      font-size: clamp(16px, 2vw, 20px);
-      color: #a0a8c0;
+      font-size: clamp(15px, 1.8vw, 18px);
+      color: var(--muted);
       max-width: 620px;
-      margin: 0 auto 40px;
+      margin: 0 auto 44px;
     }
 
     .hero-buttons {
@@ -91,539 +206,632 @@
     }
 
     .btn-primary {
-      background-color: #f0a500;
-      color: #0f1117;
-      padding: 16px 36px;
+      background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+      color: #fff;
+      padding: 16px 40px;
       border-radius: 8px;
       font-weight: 700;
       font-size: 16px;
-      transition: background 0.2s;
+      box-shadow: 0 0 24px var(--blue-glow);
+      transition: all 0.2s;
+      letter-spacing: 0.5px;
     }
 
-    .btn-primary:hover { background-color: #d4911a; }
+    .btn-primary:hover {
+      box-shadow: 0 0 40px rgba(0,170,255,0.6);
+      transform: translateY(-2px);
+    }
 
     .btn-secondary {
-      background-color: transparent;
-      color: #f0f0f0;
-      padding: 16px 36px;
+      background: transparent;
+      color: var(--steel);
+      padding: 16px 40px;
       border-radius: 8px;
       font-weight: 600;
       font-size: 16px;
-      border: 2px solid #2e3348;
-      transition: border-color 0.2s;
+      border: 1px solid rgba(192,200,216,0.3);
+      transition: all 0.2s;
     }
 
-    .btn-secondary:hover { border-color: #f0a500; color: #f0a500; }
+    .btn-secondary:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
 
-    /* STATS BAR */
-    .stats {
+    /* ===== STATS ===== */
+    .stats-bar {
+      position: relative;
+      z-index: 1;
+      background: var(--dark2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 48px 20px;
+    }
+
+    .stats-inner {
       display: flex;
       justify-content: center;
-      gap: 60px;
+      gap: 80px;
       flex-wrap: wrap;
-      padding: 50px 20px;
-      background-color: #151825;
-      border-top: 1px solid #1e2130;
-      border-bottom: 1px solid #1e2130;
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
     .stat-item { text-align: center; }
 
-    .stat-number {
-      font-size: 36px;
-      font-weight: 800;
-      color: #f0a500;
+    .stat-num {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 44px;
+      font-weight: 700;
+      color: var(--blue);
+      text-shadow: 0 0 12px var(--blue-glow);
+      line-height: 1;
     }
 
     .stat-label {
-      font-size: 14px;
-      color: #a0a8c0;
-      margin-top: 4px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 6px;
+      max-width: 140px;
     }
 
-    /* PROBLEM */
+    /* ===== SECTIONS ===== */
     .section {
-      padding: 80px 20px;
+      position: relative;
+      z-index: 1;
+      padding: 90px 20px;
       max-width: 1100px;
       margin: 0 auto;
     }
 
-    .section-label {
+    .section-alt {
+      background: var(--dark2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-alt .section { max-width: 1100px; margin: 0 auto; }
+
+    .label {
       text-align: center;
-      font-size: 13px;
+      font-size: 11px;
       font-weight: 700;
-      color: #f0a500;
+      color: var(--blue);
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
       margin-bottom: 16px;
     }
 
     .section h2 {
+      font-family: 'Rajdhani', sans-serif;
       text-align: center;
-      font-size: clamp(26px, 4vw, 44px);
-      font-weight: 800;
-      margin-bottom: 20px;
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+      line-height: 1.2;
     }
 
-    .section h2 span { color: #f0a500; }
+    .section h2 .accent { color: var(--blue); text-shadow: 0 0 16px var(--blue-glow); }
 
     .section-sub {
       text-align: center;
-      color: #a0a8c0;
+      color: var(--muted);
       font-size: 17px;
-      max-width: 640px;
+      max-width: 600px;
       margin: 0 auto 60px;
     }
 
-    /* PROBLEM CARDS */
-    .problem-grid {
+    /* ===== PROBLEM CARDS ===== */
+    .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 24px;
     }
 
-    .problem-card {
-      background-color: #151825;
-      border: 1px solid #1e2130;
+    .card {
+      background: var(--dark2);
+      border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 32px;
+      padding: 36px 30px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
-    .problem-icon {
-      font-size: 36px;
-      margin-bottom: 16px;
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--blue), transparent);
+      opacity: 0;
+      transition: opacity 0.2s;
     }
 
-    .problem-card h3 {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: #f0f0f0;
-    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,100,255,0.15); }
+    .card:hover::before { opacity: 1; }
 
-    .problem-card p {
-      color: #a0a8c0;
-      font-size: 15px;
-    }
+    .card-icon { font-size: 38px; margin-bottom: 18px; }
+    .card h3 { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .card p { color: var(--muted); font-size: 15px; line-height: 1.7; }
 
-    /* HOW IT WORKS */
-    .how-bg {
-      background-color: #151825;
-      border-top: 1px solid #1e2130;
-      border-bottom: 1px solid #1e2130;
-    }
-
-    .steps {
+    /* ===== STEPS ===== */
+    .steps-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 40px;
-      margin-top: 20px;
     }
 
-    .step {
-      text-align: center;
-      padding: 20px;
-    }
+    .step { text-align: center; padding: 20px; }
 
-    .step-number {
-      width: 56px;
-      height: 56px;
-      background-color: #f0a500;
-      color: #0f1117;
+    .step-num {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--blue), var(--blue-dark));
       border-radius: 50%;
-      font-size: 22px;
-      font-weight: 800;
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0 auto 20px;
-    }
-
-    .step h3 {
-      font-size: 19px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 24px;
       font-weight: 700;
-      margin-bottom: 10px;
+      color: #fff;
+      box-shadow: 0 0 20px var(--blue-glow);
     }
 
-    .step p { color: #a0a8c0; font-size: 15px; }
+    .step h3 { font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .step p { color: var(--muted); font-size: 15px; }
 
-    /* PRICING */
+    /* ===== PRICING ===== */
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
       gap: 24px;
-      margin-top: 20px;
     }
 
     .pricing-card {
-      background-color: #151825;
-      border: 1px solid #1e2130;
+      background: var(--dark2);
+      border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 40px 32px;
+      padding: 44px 36px;
       position: relative;
-      transition: transform 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .pricing-card:hover { transform: translateY(-4px); }
 
     .pricing-card.featured {
-      border-color: #f0a500;
-      background-color: #1a1e2e;
+      border-color: var(--blue);
+      background: linear-gradient(160deg, rgba(0,100,255,0.08) 0%, var(--dark2) 100%);
+      box-shadow: 0 0 40px rgba(0,100,255,0.15);
     }
 
-    .featured-badge {
+    .featured-tag {
       position: absolute;
       top: -14px;
       left: 50%;
       transform: translateX(-50%);
-      background-color: #f0a500;
-      color: #0f1117;
-      font-size: 12px;
+      background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+      color: #fff;
+      font-size: 11px;
       font-weight: 700;
-      padding: 4px 16px;
+      padding: 4px 18px;
       border-radius: 20px;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
       white-space: nowrap;
+      box-shadow: 0 0 12px var(--blue-glow);
     }
 
-    .tier-name {
-      font-size: 13px;
+    .tier-label {
+      font-size: 11px;
       font-weight: 700;
-      color: #f0a500;
+      color: var(--blue);
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       margin-bottom: 8px;
     }
 
     .tier-title {
-      font-size: 22px;
-      font-weight: 800;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
       margin-bottom: 20px;
     }
 
     .tier-price {
-      font-size: 48px;
-      font-weight: 800;
-      color: #f0a500;
-      margin-bottom: 4px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 54px;
+      font-weight: 700;
+      color: var(--blue);
+      line-height: 1;
+      text-shadow: 0 0 12px var(--blue-glow);
     }
 
-    .tier-price span {
-      font-size: 18px;
-      font-weight: 400;
-      color: #a0a8c0;
-    }
+    .tier-price sup { font-size: 24px; vertical-align: super; }
+    .tier-price sub { font-size: 18px; color: var(--muted); font-family: 'Inter', sans-serif; font-weight: 400; }
 
     .tier-desc {
-      color: #a0a8c0;
+      color: var(--muted);
       font-size: 14px;
-      margin-bottom: 28px;
+      margin: 16px 0 28px;
       padding-bottom: 28px;
-      border-bottom: 1px solid #1e2130;
+      border-bottom: 1px solid var(--border);
     }
 
-    .tier-features {
-      list-style: none;
-      margin-bottom: 36px;
-    }
+    .tier-features { list-style: none; margin-bottom: 36px; }
 
     .tier-features li {
-      padding: 8px 0;
+      padding: 9px 0;
       font-size: 15px;
-      color: #d0d8f0;
+      color: var(--text);
       display: flex;
       align-items: flex-start;
       gap: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
     }
+
+    .tier-features li:last-child { border-bottom: none; }
 
     .tier-features li::before {
       content: "✓";
-      color: #f0a500;
+      color: var(--blue);
       font-weight: 700;
       flex-shrink: 0;
       margin-top: 1px;
+      text-shadow: 0 0 8px var(--blue-glow);
     }
 
-    .tier-cta {
+    .tier-btn {
       display: block;
       text-align: center;
       padding: 14px;
       border-radius: 8px;
       font-weight: 700;
       font-size: 15px;
-      background-color: #f0a500;
-      color: #0f1117;
-      transition: background 0.2s;
+      letter-spacing: 0.5px;
+      transition: all 0.2s;
+      background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+      color: #fff;
+      box-shadow: 0 0 16px var(--blue-glow);
     }
 
-    .tier-cta:hover { background-color: #d4911a; }
+    .tier-btn:hover { box-shadow: 0 0 28px rgba(0,170,255,0.5); transform: translateY(-1px); }
 
-    .pricing-card:not(.featured) .tier-cta {
-      background-color: transparent;
-      border: 2px solid #2e3348;
-      color: #f0f0f0;
+    .pricing-card:not(.featured) .tier-btn {
+      background: transparent;
+      border: 1px solid rgba(0,170,255,0.3);
+      color: var(--steel);
+      box-shadow: none;
     }
 
-    .pricing-card:not(.featured) .tier-cta:hover {
-      border-color: #f0a500;
-      color: #f0a500;
+    .pricing-card:not(.featured) .tier-btn:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      box-shadow: 0 0 16px var(--blue-glow);
     }
 
-    /* TESTIMONIAL */
+    /* ===== TESTIMONIALS ===== */
     .testimonial-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
       gap: 24px;
     }
 
     .testimonial-card {
-      background-color: #151825;
-      border: 1px solid #1e2130;
+      background: var(--dark2);
+      border: 1px solid var(--border);
       border-radius: 12px;
       padding: 32px;
+      position: relative;
     }
 
-    .stars { color: #f0a500; font-size: 18px; margin-bottom: 16px; }
-
-    .testimonial-card p {
-      color: #d0d8f0;
-      font-size: 15px;
-      font-style: italic;
-      margin-bottom: 20px;
-      line-height: 1.7;
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 16px;
+      right: 24px;
+      font-size: 64px;
+      color: var(--blue);
+      opacity: 0.15;
+      font-family: serif;
+      line-height: 1;
     }
 
-    .testimonial-author {
-      font-weight: 700;
-      font-size: 14px;
-      color: #f0f0f0;
-    }
+    .stars { color: var(--blue); font-size: 16px; margin-bottom: 16px; text-shadow: 0 0 8px var(--blue-glow); }
+    .testimonial-card p { color: var(--muted); font-size: 15px; font-style: italic; margin-bottom: 24px; line-height: 1.8; }
+    .testimonial-author { font-weight: 700; font-size: 14px; color: #fff; }
+    .testimonial-role { font-size: 13px; color: var(--blue); margin-top: 2px; }
 
-    .testimonial-role {
-      font-size: 13px;
-      color: #a0a8c0;
-    }
-
-    /* CTA SECTION */
+    /* ===== CTA SECTION ===== */
     .cta-section {
-      background: linear-gradient(135deg, #1a1e2e 0%, #151825 100%);
-      border-top: 1px solid #f0a500;
-      border-bottom: 1px solid #1e2130;
+      position: relative;
+      z-index: 1;
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(0,100,255,0.1) 0%, transparent 70%),
+        var(--dark2);
+      border-top: 1px solid var(--blue);
+      border-bottom: 1px solid var(--border);
       text-align: center;
-      padding: 80px 20px;
+      padding: 100px 20px;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--blue), transparent);
+    }
+
+    .cta-logo {
+      width: 120px;
+      margin: 0 auto 32px;
+      display: block;
+      filter: drop-shadow(0 0 20px rgba(0,170,255,0.5));
     }
 
     .cta-section h2 {
-      font-size: clamp(28px, 4vw, 48px);
-      font-weight: 800;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(30px, 5vw, 52px);
+      font-weight: 700;
+      color: #fff;
       max-width: 700px;
       margin: 0 auto 20px;
+      line-height: 1.2;
     }
 
-    .cta-section h2 span { color: #f0a500; }
+    .cta-section h2 .accent { color: var(--blue); text-shadow: 0 0 16px var(--blue-glow); }
 
-    .cta-section p {
-      color: #a0a8c0;
-      font-size: 18px;
-      margin-bottom: 40px;
-    }
+    .cta-section p { color: var(--muted); font-size: 18px; margin-bottom: 44px; }
 
-    .cta-buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
-    .phone-link {
+    .cta-main {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background-color: #f0a500;
-      color: #0f1117;
-      padding: 16px 36px;
+      background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+      color: #fff;
+      padding: 18px 44px;
       border-radius: 8px;
       font-weight: 700;
       font-size: 18px;
-      transition: background 0.2s;
+      box-shadow: 0 0 28px var(--blue-glow);
+      transition: all 0.2s;
     }
 
-    .phone-link:hover { background-color: #d4911a; }
+    .cta-main:hover { box-shadow: 0 0 48px rgba(0,170,255,0.6); transform: translateY(-2px); }
 
-    /* FOOTER */
+    /* ===== FOOTER ===== */
     footer {
-      background-color: #0a0c12;
-      padding: 40px 20px;
+      position: relative;
+      z-index: 1;
+      background: #050810;
+      border-top: 1px solid var(--border);
+      padding: 48px 20px 32px;
       text-align: center;
-      border-top: 1px solid #1e2130;
     }
 
     .footer-logo {
-      font-size: 20px;
-      font-weight: 700;
-      color: #f0a500;
-      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 16px;
     }
 
-    footer p {
-      color: #a0a8c0;
-      font-size: 14px;
-      margin-bottom: 6px;
+    .footer-logo img {
+      height: 56px;
+      filter: drop-shadow(0 0 8px var(--blue-glow));
     }
+
+    .footer-logo-text {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--steel);
+      letter-spacing: 1px;
+      text-align: left;
+      line-height: 1.1;
+    }
+
+    .footer-logo-text span {
+      display: block;
+      font-size: 11px;
+      font-family: 'Inter', sans-serif;
+      color: var(--blue);
+      letter-spacing: 2px;
+    }
+
+    footer p { color: var(--muted); font-size: 14px; margin-bottom: 6px; }
 
     .footer-bottom {
-      margin-top: 24px;
-      padding-top: 24px;
-      border-top: 1px solid #1e2130;
-      color: #505570;
-      font-size: 13px;
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      color: #3a4050;
+      font-size: 12px;
     }
 
-    /* MOBILE */
-    @media (max-width: 600px) {
-      nav { padding: 16px 20px; }
-      .stats { gap: 30px; }
-      .pricing-card { padding: 32px 24px; }
+    /* ===== GLOW LINE DIVIDER ===== */
+    .glow-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--blue), transparent);
+      opacity: 0.4;
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 768px) {
+      nav { padding: 12px 20px; }
+      .stats-inner { gap: 36px; }
+      .section { padding: 60px 16px; }
+      .pricing-card { padding: 36px 24px; }
+      .hero-logo { width: 140px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <div class="logo">Tony's Business Solutions</div>
-    <a href="https://api.leadconnectorhq.com/widget/bookings/tony-decarlo-free-fna" target="_blank" class="nav-cta">📞 Free Demo</a>
-  </nav>
+<div class="circuit-bg"></div>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-badge">🤖 AI Automation for Tradespeople</div>
-    <h1>Stop Losing <span>$500–$2,000</span> Every Time You Miss a Call</h1>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="logo.jpg" alt="Tony's Business Solutions Logo" />
+    <div class="nav-logo-text">
+      TONY'S
+      <span>Business Solutions</span>
+    </div>
+  </div>
+  <a href="https://api.leadconnectorhq.com/widget/bookings/tony-decarlo-free-fna" target="_blank" class="nav-cta">⚡ Book Free Demo</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <img src="logo.jpg" alt="Tony's Business Solutions" class="hero-logo" />
+    <div class="hero-badge">⚡ AI Automation for Tradespeople</div>
+    <h1>Stop Losing <span class="accent">$500–$2,000</span></h1>
+    <h2>Every Time You Miss a Call</h2>
     <p>We automate your follow-up, booking, and lead nurture so you never lose a job to a missed call again — 24/7, fully hands-off.</p>
     <div class="hero-buttons">
-      <a href="https://api.leadconnectorhq.com/widget/bookings/tony-decarlo-free-fna" target="_blank" class="btn-primary">📞 Book a Free Demo</a>
+      <a href="https://api.leadconnectorhq.com/widget/bookings/tony-decarlo-free-fna" target="_blank" class="btn-primary">⚡ Book a Free Demo</a>
       <a href="#pricing" class="btn-secondary">See Pricing →</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- STATS -->
-  <div class="stats">
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
     <div class="stat-item">
-      <div class="stat-number">78%</div>
-      <div class="stat-label">of customers call the first<br>business that answers</div>
+      <div class="stat-num">78%</div>
+      <div class="stat-label">of customers call the first business that answers</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number">$1,200</div>
-      <div class="stat-label">average value of a missed<br>trade job</div>
+      <div class="stat-num">$1,200</div>
+      <div class="stat-label">average value of a missed trade job</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number">24/7</div>
-      <div class="stat-label">AI answers calls &amp;<br>books jobs for you</div>
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">AI answers calls & books jobs for you</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number">48h</div>
-      <div class="stat-label">automated follow-up<br>on every lead</div>
+      <div class="stat-num">48h</div>
+      <div class="stat-label">automated follow-up on every lead</div>
     </div>
   </div>
+</div>
 
-  <!-- PROBLEM -->
+<!-- PROBLEM -->
+<div>
   <div class="section">
-    <div class="section-label">The Problem</div>
-    <h2>You're On the Job.<br><span>Your Phone Keeps Ringing.</span></h2>
+    <div class="label">The Problem</div>
+    <h2>You're On the Job.<br><span class="accent">Your Phone Keeps Ringing.</span></h2>
     <p class="section-sub">Every missed call is a missed job. Your competition picks up. You lose the work. It happens dozens of times a month.</p>
-    <div class="problem-grid">
-      <div class="problem-card">
-        <div class="problem-icon">📵</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">📵</div>
         <h3>Missed Calls = Missed Revenue</h3>
-        <p>You can't answer your phone while you're on a roof, under a sink, or wiring a panel. But customers don't wait — they call the next guy.</p>
+        <p>You can't answer while you're on a roof, under a sink, or wiring a panel. Customers don't wait — they call the next guy.</p>
       </div>
-      <div class="problem-card">
-        <div class="problem-icon">⏰</div>
+      <div class="card">
+        <div class="card-icon">⏰</div>
         <h3>No Time to Follow Up</h3>
-        <p>After a long day on the tools, the last thing you want to do is call back 10 people. Leads go cold. Jobs walk out the door.</p>
+        <p>After a long day on the tools, the last thing you want is to call back 10 people. Leads go cold. Jobs walk out the door.</p>
       </div>
-      <div class="problem-card">
-        <div class="problem-icon">📉</div>
+      <div class="card">
+        <div class="card-icon">📉</div>
         <h3>Slow Season Kills Cash Flow</h3>
-        <p>When the work slows down, you need every lead to count. One missed call during a slow week can cost you thousands.</p>
+        <p>When work slows down, every lead counts. One missed call during a slow week can cost you thousands.</p>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- HOW IT WORKS -->
-  <div class="how-bg">
-    <div class="section">
-      <div class="section-label">How It Works</div>
-      <h2>We Set It Up.<br><span>You Get the Jobs.</span></h2>
-      <p class="section-sub">Three simple steps and your business runs on autopilot — no tech skills required.</p>
-      <div class="steps">
-        <div class="step">
-          <div class="step-number">1</div>
-          <h3>We Set Everything Up</h3>
-          <p>We build and configure your entire automation system in 48 hours. You don't touch a thing.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">2</div>
-          <h3>Leads Come In Automatically</h3>
-          <p>Missed calls trigger instant SMS follow-ups. Your AI voice agent answers after hours and books jobs directly into your calendar.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">3</div>
-          <h3>You Show Up and Do the Work</h3>
-          <p>Your calendar fills up. We handle the follow-up, reminders, and review requests. You focus on the trade.</p>
-        </div>
+<div class="glow-line"></div>
+
+<!-- HOW IT WORKS -->
+<div class="section-alt">
+  <div class="section">
+    <div class="label">How It Works</div>
+    <h2>We Set It Up.<br><span class="accent">You Get the Jobs.</span></h2>
+    <p class="section-sub">Three steps and your business runs on autopilot — no tech skills required.</p>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>We Set Everything Up</h3>
+        <p>We build and configure your full automation system in 48 hours. You don't touch a thing.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Leads Come In Automatically</h3>
+        <p>Missed calls trigger instant SMS follow-ups. Your AI voice agent answers after hours and books jobs straight into your calendar.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>You Show Up and Do the Work</h3>
+        <p>Your calendar fills up. We handle the follow-up, reminders, and review requests. You focus on the trade.</p>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- PRICING -->
-  <div class="section" id="pricing">
-    <div class="section-label">Pricing</div>
-    <h2>Simple, Flat-Rate<br><span>Monthly Plans</span></h2>
-    <p class="section-sub">No setup headaches. No long contracts. Cancel anytime. Pick the plan that fits your business.</p>
+<div class="glow-line"></div>
+
+<!-- PRICING -->
+<div id="pricing">
+  <div class="section">
+    <div class="label">Pricing</div>
+    <h2>Simple Flat-Rate<br><span class="accent">Monthly Plans</span></h2>
+    <p class="section-sub">No setup headaches. No long contracts. Cancel anytime.</p>
     <div class="pricing-grid">
 
       <!-- TIER 1 -->
       <div class="pricing-card">
-        <div class="tier-name">Tier 1</div>
+        <div class="tier-label">Tier 1</div>
         <div class="tier-title">Never Miss a Lead</div>
-        <div class="tier-price">$197<span>/mo</span></div>
-        <div class="tier-desc">Perfect for trades businesses that want to stop losing leads to missed calls.</div>
+        <div class="tier-price"><sup>$</sup>197<sub>/mo</sub></div>
+        <div class="tier-desc">For trades businesses that want to stop losing leads to missed calls.</div>
         <ul class="tier-features">
           <li>Missed Call Text Back (instant SMS)</li>
           <li>3-step automated follow-up sequence</li>
           <li>Online booking calendar</li>
           <li>Appointment confirmation SMS + email</li>
-          <li>24hr &amp; 1hr reminder sequences</li>
+          <li>24hr & 1hr reminder sequences</li>
           <li>Stops automatically when lead books</li>
         </ul>
-        <a href="https://api.leadconnectorhq.com/widget/bookings/tony-decarlo-free-fna" target="_blank" class="tier-cta">Get Started →</a>
+        <a href="https://api.leadconnectorhq.com/widget/bookings/tony-decarlo-free-fna" target="_blank" class="tier-btn">Get Started →</a>
       </div>
 
       <!-- TIER 2 -->
       <div class="pricing-card featured">
-        <div class="featured-badge">Most Popular</div>
-        <div class="tier-name">Tier 2</div>
+        <div class="featured-tag">⚡ Most Popular</div>
+        <div class="tier-label">Tier 2</div>
         <div class="tier-title">Always Open</div>
-        <div class="tier-price">$397<span>/mo</span></div>
+        <div class="tier-price"><sup>$</sup>397<sub>/mo</sub></div>
         <div class="tier-desc">Your business answers calls and books jobs 24/7 — even when you're on the tools.</div>
         <ul class="tier-features">
           <li>Everything in Tier 1</li>
           <li>24/7 AI Voice Agent</li>
           <li>Qualifies leads automatically</li>
           <li>Books appointments into your calendar</li>
-          <li>Collects name &amp; callback number</li>
+          <li>Collects name & callback number</li>
           <li>Professional, on-brand voice</li>
         </ul>
-        <a href="https://api.leadconnectorhq.com/widget/bookings/tony-decarlo-free-fna" target="_blank" class="tier-cta">Get Started →</a>
+        <a href="https://api.leadconnectorhq.com/widget/bookings/tony-decarlo-free-fna" target="_blank" class="tier-btn">Get Started →</a>
       </div>
 
       <!-- TIER 3 -->
       <div class="pricing-card">
-        <div class="tier-name">Tier 3</div>
+        <div class="tier-label">Tier 3</div>
         <div class="tier-title">Full Autopilot</div>
-        <div class="tier-price">$597<span>/mo</span></div>
+        <div class="tier-price"><sup>$</sup>597<sub>/mo</sub></div>
         <div class="tier-desc">Complete hands-off lead management, reviews, and monthly reporting.</div>
         <ul class="tier-features">
           <li>Everything in Tier 2</li>
@@ -633,60 +841,70 @@
           <li>Monthly performance report</li>
           <li>Priority support</li>
         </ul>
-        <a href="https://api.leadconnectorhq.com/widget/bookings/tony-decarlo-free-fna" target="_blank" class="tier-cta">Get Started →</a>
+        <a href="https://api.leadconnectorhq.com/widget/bookings/tony-decarlo-free-fna" target="_blank" class="tier-btn">Get Started →</a>
       </div>
 
     </div>
   </div>
+</div>
 
-  <!-- TESTIMONIALS -->
-  <div class="how-bg">
-    <div class="section">
-      <div class="section-label">Results</div>
-      <h2>Tradespeople Are<br><span>Winning More Jobs</span></h2>
-      <p class="section-sub">Real results from real business owners in Ontario.</p>
-      <div class="testimonial-grid">
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p>"I was losing 5-6 calls a day while I was on jobs. First week with Tony's system I booked 3 new jobs from callbacks I would've never made."</p>
-          <div class="testimonial-author">Mike R.</div>
-          <div class="testimonial-role">Plumber — Barrie, ON</div>
-        </div>
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p>"The AI answers my calls at 9pm and books the estimate right into my calendar. Showed up Monday morning with 4 jobs already scheduled. Wild."</p>
-          <div class="testimonial-author">Dave K.</div>
-          <div class="testimonial-role">HVAC Technician — Sudbury, ON</div>
-        </div>
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p>"Set it up Friday, had 2 new booked estimates by Sunday. Paid for itself in the first week. I wish I'd done this two years ago."</p>
-          <div class="testimonial-author">Jason M.</div>
-          <div class="testimonial-role">Electrician — North Bay, ON</div>
-        </div>
+<div class="glow-line"></div>
+
+<!-- TESTIMONIALS -->
+<div class="section-alt">
+  <div class="section">
+    <div class="label">Results</div>
+    <h2>Tradespeople Are<br><span class="accent">Winning More Jobs</span></h2>
+    <p class="section-sub">Real results from real business owners in Ontario.</p>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"I was losing 5-6 calls a day while on jobs. First week with Tony's system I booked 3 new jobs from callbacks I would've never made."</p>
+        <div class="testimonial-author">Mike R.</div>
+        <div class="testimonial-role">Plumber — Barrie, ON</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"The AI answers my calls at 9pm and books the estimate right into my calendar. Showed up Monday with 4 jobs already scheduled. Wild."</p>
+        <div class="testimonial-author">Dave K.</div>
+        <div class="testimonial-role">HVAC Technician — Sudbury, ON</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Set it up Friday, had 2 booked estimates by Sunday. Paid for itself the first week. I wish I'd done this two years ago."</p>
+        <div class="testimonial-author">Jason M.</div>
+        <div class="testimonial-role">Electrician — North Bay, ON</div>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- CTA -->
-  <div class="cta-section">
-    <h2>Ready to Stop Losing Jobs to <span>Missed Calls?</span></h2>
-    <p>Book a free 15-minute demo. We'll show you exactly how it works for your trade.</p>
-    <div class="cta-buttons">
-      <a href="https://api.leadconnectorhq.com/widget/bookings/tony-decarlo-free-fna" target="_blank" class="phone-link">📞 Book a Free Demo</a>
-      <a href="https://api.leadconnectorhq.com/widget/bookings/tony-decarlo-free-fna" target="_blank" class="btn-secondary">Book a Free Demo →</a>
+<!-- CTA -->
+<div class="cta-section">
+  <img src="logo.jpg" alt="Tony's Business Solutions" class="cta-logo" />
+  <h2>Ready to Stop Losing Jobs to<br><span class="accent">Missed Calls?</span></h2>
+  <p>Book a free 15-minute demo. We'll show you exactly how it works for your trade.</p>
+  <div class="cta-buttons">
+    <a href="https://api.leadconnectorhq.com/widget/bookings/tony-decarlo-free-fna" target="_blank" class="cta-main">⚡ Book Your Free Demo</a>
+    <a href="tel:17058082248" class="btn-secondary">📞 (705) 808-2248</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="logo.jpg" alt="Tony's Business Solutions" />
+    <div class="footer-logo-text">
+      TONY'S
+      <span>Business Solutions</span>
     </div>
   </div>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-logo">Tony's Business Solutions</div>
-    <p>AI Automation for Tradespeople &amp; Small Business Owners</p>
-    <p>📍 Ontario, Canada &nbsp;|&nbsp; 📞 (705) 808-2248</p>
-    <div class="footer-bottom">
-      © 2024 Tony's Business Solutions. All rights reserved.
-    </div>
-  </footer>
+  <p>AI Automation for Tradespeople & Small Business Owners</p>
+  <p>📍 Ontario, Canada &nbsp;|&nbsp; 📞 (705) 808-2248</p>
+  <div class="footer-bottom">
+    © 2025 Tony's Business Solutions. All rights reserved.
+  </div>
+</footer>
 
 </body>
 </html>
