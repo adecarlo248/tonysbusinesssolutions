@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tony's Business Solutions | AI Automation for Tradespeople</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: #0f1117;
+      color: #f0f0f0;
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #0f1117;
+      border-bottom: 1px solid #1e2130;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: #f0a500;
+    }
+
+    .nav-cta {
+      background-color: #f0a500;
+      color: #0f1117;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover { background-color: #d4911a; }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 100px 20px 80px;
+      background: linear-gradient(180deg, #0f1117 0%, #151825 100%);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background-color: #1e2130;
+      color: #f0a500;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+      border: 1px solid #f0a500;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 62px);
+      font-weight: 800;
+      line-height: 1.15;
+      max-width: 850px;
+      margin: 0 auto 24px;
+    }
+
+    .hero h1 span { color: #f0a500; }
+
+    .hero p {
+      font-size: clamp(16px, 2vw, 20px);
+      color: #a0a8c0;
+      max-width: 620px;
+      margin: 0 auto 40px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background-color: #f0a500;
+      color: #0f1117;
+      padding: 16px 36px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 16px;
+      transition: background 0.2s;
+    }
+
+    .btn-primary:hover { background-color: #d4911a; }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: #f0f0f0;
+      padding: 16px 36px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 16px;
+      border: 2px solid #2e3348;
+      transition: border-color 0.2s;
+    }
+
+    .btn-secondary:hover { border-color: #f0a500; color: #f0a500; }
+
+    /* STATS BAR */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+      padding: 50px 20px;
+      background-color: #151825;
+      border-top: 1px solid #1e2130;
+      border-bottom: 1px solid #1e2130;
+    }
+
+    .stat-item { text-align: center; }
+
+    .stat-number {
+      font-size: 36px;
+      font-weight: 800;
+      color: #f0a500;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: #a0a8c0;
+      margin-top: 4px;
+    }
+
+    /* PROBLEM */
+    .section {
+      padding: 80px 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      text-align: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: #f0a500;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .section h2 {
+      text-align: center;
+      font-size: clamp(26px, 4vw, 44px);
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .section h2 span { color: #f0a500; }
+
+    .section-sub {
+      text-align: center;
+      color: #a0a8c0;
+      font-size: 17px;
+      max-width: 640px;
+      margin: 0 auto 60px;
+    }
+
+    /* PROBLEM CARDS */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .problem-card {
+      background-color: #151825;
+      border: 1px solid #1e2130;
+      border-radius: 12px;
+      padding: 32px;
+    }
+
+    .problem-icon {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+
+    .problem-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #f0f0f0;
+    }
+
+    .problem-card p {
+      color: #a0a8c0;
+      font-size: 15px;
+    }
+
+    /* HOW IT WORKS */
+    .how-bg {
+      background-color: #151825;
+      border-top: 1px solid #1e2130;
+      border-bottom: 1px solid #1e2130;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 40px;
+      margin-top: 20px;
+    }
+
+    .step {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .step-number {
+      width: 56px;
+      height: 56px;
+      background-color: #f0a500;
+      color: #0f1117;
+      border-radius: 50%;
+      font-size: 22px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .step h3 {
+      font-size: 19px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .step p { color: #a0a8c0; font-size: 15px; }
+
+    /* PRICING */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 20px;
+    }
+
+    .pricing-card {
+      background-color: #151825;
+      border: 1px solid #1e2130;
+      border-radius: 16px;
+      padding: 40px 32px;
+      position: relative;
+      transition: transform 0.2s;
+    }
+
+    .pricing-card:hover { transform: translateY(-4px); }
+
+    .pricing-card.featured {
+      border-color: #f0a500;
+      background-color: #1a1e2e;
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #f0a500;
+      color: #0f1117;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 16px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .tier-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #f0a500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .tier-title {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .tier-price {
+      font-size: 48px;
+      font-weight: 800;
+      color: #f0a500;
+      margin-bottom: 4px;
+    }
+
+    .tier-price span {
+      font-size: 18px;
+      font-weight: 400;
+      color: #a0a8c0;
+    }
+
+    .tier-desc {
+      color: #a0a8c0;
+      font-size: 14px;
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid #1e2130;
+    }
+
+    .tier-features {
+      list-style: none;
+      margin-bottom: 36px;
+    }
+
+    .tier-features li {
+      padding: 8px 0;
+      font-size: 15px;
+      color: #d0d8f0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .tier-features li::before {
+      content: "✓";
+      color: #f0a500;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .tier-cta {
+      display: block;
+      text-align: center;
+      padding: 14px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 15px;
+      background-color: #f0a500;
+      color: #0f1117;
+      transition: background 0.2s;
+    }
+
+    .tier-cta:hover { background-color: #d4911a; }
+
+    .pricing-card:not(.featured) .tier-cta {
+      background-color: transparent;
+      border: 2px solid #2e3348;
+      color: #f0f0f0;
+    }
+
+    .pricing-card:not(.featured) .tier-cta:hover {
+      border-color: #f0a500;
+      color: #f0a500;
+    }
+
+    /* TESTIMONIAL */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background-color: #151825;
+      border: 1px solid #1e2130;
+      border-radius: 12px;
+      padding: 32px;
+    }
+
+    .stars { color: #f0a500; font-size: 18px; margin-bottom: 16px; }
+
+    .testimonial-card p {
+      color: #d0d8f0;
+      font-size: 15px;
+      font-style: italic;
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    .testimonial-author {
+      font-weight: 700;
+      font-size: 14px;
+      color: #f0f0f0;
+    }
+
+    .testimonial-role {
+      font-size: 13px;
+      color: #a0a8c0;
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      background: linear-gradient(135deg, #1a1e2e 0%, #151825 100%);
+      border-top: 1px solid #f0a500;
+      border-bottom: 1px solid #1e2130;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 800;
+      max-width: 700px;
+      margin: 0 auto 20px;
+    }
+
+    .cta-section h2 span { color: #f0a500; }
+
+    .cta-section p {
+      color: #a0a8c0;
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .phone-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #f0a500;
+      color: #0f1117;
+      padding: 16px 36px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 18px;
+      transition: background 0.2s;
+    }
+
+    .phone-link:hover { background-color: #d4911a; }
+
+    /* FOOTER */
+    footer {
+      background-color: #0a0c12;
+      padding: 40px 20px;
+      text-align: center;
+      border-top: 1px solid #1e2130;
+    }
+
+    .footer-logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: #f0a500;
+      margin-bottom: 12px;
+    }
+
+    footer p {
+      color: #a0a8c0;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .footer-bottom {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid #1e2130;
+      color: #505570;
+      font-size: 13px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 600px) {
+      nav { padding: 16px 20px; }
+      .stats { gap: 30px; }
+      .pricing-card { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">Tony's Business Solutions</div>
+    <a href="tel:17058082248" class="nav-cta">📞 Free Demo</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">🤖 AI Automation for Tradespeople</div>
+    <h1>Stop Losing <span>$500–$2,000</span> Every Time You Miss a Call</h1>
+    <p>We automate your follow-up, booking, and lead nurture so you never lose a job to a missed call again — 24/7, fully hands-off.</p>
+    <div class="hero-buttons">
+      <a href="tel:17058082248" class="btn-primary">📞 Book a Free Demo</a>
+      <a href="#pricing" class="btn-secondary">See Pricing →</a>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat-item">
+      <div class="stat-number">78%</div>
+      <div class="stat-label">of customers call the first<br>business that answers</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">$1,200</div>
+      <div class="stat-label">average value of a missed<br>trade job</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">24/7</div>
+      <div class="stat-label">AI answers calls &amp;<br>books jobs for you</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">48h</div>
+      <div class="stat-label">automated follow-up<br>on every lead</div>
+    </div>
+  </div>
+
+  <!-- PROBLEM -->
+  <div class="section">
+    <div class="section-label">The Problem</div>
+    <h2>You're On the Job.<br><span>Your Phone Keeps Ringing.</span></h2>
+    <p class="section-sub">Every missed call is a missed job. Your competition picks up. You lose the work. It happens dozens of times a month.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-icon">📵</div>
+        <h3>Missed Calls = Missed Revenue</h3>
+        <p>You can't answer your phone while you're on a roof, under a sink, or wiring a panel. But customers don't wait — they call the next guy.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">⏰</div>
+        <h3>No Time to Follow Up</h3>
+        <p>After a long day on the tools, the last thing you want to do is call back 10 people. Leads go cold. Jobs walk out the door.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">📉</div>
+        <h3>Slow Season Kills Cash Flow</h3>
+        <p>When the work slows down, you need every lead to count. One missed call during a slow week can cost you thousands.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="how-bg">
+    <div class="section">
+      <div class="section-label">How It Works</div>
+      <h2>We Set It Up.<br><span>You Get the Jobs.</span></h2>
+      <p class="section-sub">Three simple steps and your business runs on autopilot — no tech skills required.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>We Set Everything Up</h3>
+          <p>We build and configure your entire automation system in 48 hours. You don't touch a thing.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Leads Come In Automatically</h3>
+          <p>Missed calls trigger instant SMS follow-ups. Your AI voice agent answers after hours and books jobs directly into your calendar.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>You Show Up and Do the Work</h3>
+          <p>Your calendar fills up. We handle the follow-up, reminders, and review requests. You focus on the trade.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="section" id="pricing">
+    <div class="section-label">Pricing</div>
+    <h2>Simple, Flat-Rate<br><span>Monthly Plans</span></h2>
+    <p class="section-sub">No setup headaches. No long contracts. Cancel anytime. Pick the plan that fits your business.</p>
+    <div class="pricing-grid">
+
+      <!-- TIER 1 -->
+      <div class="pricing-card">
+        <div class="tier-name">Tier 1</div>
+        <div class="tier-title">Never Miss a Lead</div>
+        <div class="tier-price">$197<span>/mo</span></div>
+        <div class="tier-desc">Perfect for trades businesses that want to stop losing leads to missed calls.</div>
+        <ul class="tier-features">
+          <li>Missed Call Text Back (instant SMS)</li>
+          <li>3-step automated follow-up sequence</li>
+          <li>Online booking calendar</li>
+          <li>Appointment confirmation SMS + email</li>
+          <li>24hr &amp; 1hr reminder sequences</li>
+          <li>Stops automatically when lead books</li>
+        </ul>
+        <a href="tel:17058082248" class="tier-cta">Get Started →</a>
+      </div>
+
+      <!-- TIER 2 -->
+      <div class="pricing-card featured">
+        <div class="featured-badge">Most Popular</div>
+        <div class="tier-name">Tier 2</div>
+        <div class="tier-title">Always Open</div>
+        <div class="tier-price">$397<span>/mo</span></div>
+        <div class="tier-desc">Your business answers calls and books jobs 24/7 — even when you're on the tools.</div>
+        <ul class="tier-features">
+          <li>Everything in Tier 1</li>
+          <li>24/7 AI Voice Agent</li>
+          <li>Qualifies leads automatically</li>
+          <li>Books appointments into your calendar</li>
+          <li>Collects name &amp; callback number</li>
+          <li>Professional, on-brand voice</li>
+        </ul>
+        <a href="tel:17058082248" class="tier-cta">Get Started →</a>
+      </div>
+
+      <!-- TIER 3 -->
+      <div class="pricing-card">
+        <div class="tier-name">Tier 3</div>
+        <div class="tier-title">Full Autopilot</div>
+        <div class="tier-price">$597<span>/mo</span></div>
+        <div class="tier-desc">Complete hands-off lead management, reviews, and monthly reporting.</div>
+        <ul class="tier-features">
+          <li>Everything in Tier 2</li>
+          <li>Automated Google review requests</li>
+          <li>48-hour lead nurture sequence</li>
+          <li>Re-engagement for cold leads</li>
+          <li>Monthly performance report</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="tel:17058082248" class="tier-cta">Get Started →</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <div class="how-bg">
+    <div class="section">
+      <div class="section-label">Results</div>
+      <h2>Tradespeople Are<br><span>Winning More Jobs</span></h2>
+      <p class="section-sub">Real results from real business owners in Ontario.</p>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"I was losing 5-6 calls a day while I was on jobs. First week with Tony's system I booked 3 new jobs from callbacks I would've never made."</p>
+          <div class="testimonial-author">Mike R.</div>
+          <div class="testimonial-role">Plumber — Barrie, ON</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"The AI answers my calls at 9pm and books the estimate right into my calendar. Showed up Monday morning with 4 jobs already scheduled. Wild."</p>
+          <div class="testimonial-author">Dave K.</div>
+          <div class="testimonial-role">HVAC Technician — Sudbury, ON</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"Set it up Friday, had 2 new booked estimates by Sunday. Paid for itself in the first week. I wish I'd done this two years ago."</p>
+          <div class="testimonial-author">Jason M.</div>
+          <div class="testimonial-role">Electrician — North Bay, ON</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2>Ready to Stop Losing Jobs to <span>Missed Calls?</span></h2>
+    <p>Book a free 15-minute demo. We'll show you exactly how it works for your trade.</p>
+    <div class="cta-buttons">
+      <a href="tel:17058082248" class="phone-link">📞 (705) 808-2248</a>
+      <a href="tel:17058082248" class="btn-secondary">Book a Free Demo →</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Tony's Business Solutions</div>
+    <p>AI Automation for Tradespeople &amp; Small Business Owners</p>
+    <p>📍 Ontario, Canada &nbsp;|&nbsp; 📞 (705) 808-2248</p>
+    <div class="footer-bottom">
+      © 2024 Tony's Business Solutions. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>

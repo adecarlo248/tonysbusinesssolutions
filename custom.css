@@ -1,0 +1,196 @@
+/* =============================================
+   Tony's Business Solutions — Custom CSS
+   Dark Navy + Orange Theme
+   ============================================= */
+
+/* === GLOBAL === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #0f1117 !important;
+  color: #f0f0f0 !important;
+  font-family: 'Segoe UI', Arial, sans-serif !important;
+  line-height: 1.6;
+}
+
+/* === HEADINGS === */
+h1, h2, h3, h4, h5, h6 {
+  color: #f0f0f0 !important;
+  font-weight: 800 !important;
+}
+
+h1 { font-size: clamp(32px, 5vw, 60px) !important; line-height: 1.15 !important; }
+h2 { font-size: clamp(26px, 4vw, 44px) !important; }
+h3 { font-size: 20px !important; }
+
+/* === PARAGRAPHS & TEXT === */
+p, li, span {
+  color: #a0a8c0 !important;
+  font-size: 16px !important;
+}
+
+/* === LINKS === */
+a {
+  color: #f0a500 !important;
+  text-decoration: none !important;
+}
+
+a:hover { color: #d4911a !important; }
+
+/* === NAVIGATION === */
+nav, header, .header, .nav, .navbar {
+  background-color: #0f1117 !important;
+  border-bottom: 1px solid #1e2130 !important;
+  padding: 16px 40px !important;
+}
+
+/* === HERO / BANNER SECTION === */
+.hero, .banner, .hero-section, [class*="hero"], [class*="banner"] {
+  background: linear-gradient(180deg, #0f1117 0%, #151825 100%) !important;
+  text-align: center !important;
+  padding: 100px 20px 80px !important;
+}
+
+.hero h1, .banner h1 {
+  color: #f0f0f0 !important;
+}
+
+/* === SECTIONS === */
+section, .section, .container, .content-block {
+  background-color: #0f1117 !important;
+  padding: 60px 20px !important;
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+}
+
+/* Alternate section background */
+section:nth-child(even), .section:nth-child(even) {
+  background-color: #151825 !important;
+}
+
+/* === CARDS === */
+.card, .pricing-card, .feature-card, .box, [class*="card"], [class*="box"] {
+  background-color: #151825 !important;
+  border: 1px solid #1e2130 !important;
+  border-radius: 12px !important;
+  padding: 32px !important;
+  color: #f0f0f0 !important;
+}
+
+/* === BUTTONS === */
+button,
+.button,
+.btn,
+input[type="submit"],
+input[type="button"],
+[class*="btn"],
+[class*="button"] {
+  background-color: #f0a500 !important;
+  color: #0f1117 !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 14px 32px !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  cursor: pointer !important;
+  transition: background 0.2s !important;
+}
+
+button:hover,
+.button:hover,
+.btn:hover,
+[class*="btn"]:hover,
+[class*="button"]:hover {
+  background-color: #d4911a !important;
+}
+
+/* Secondary/outline button */
+.btn-outline, .button-outline, [class*="outline"] {
+  background-color: transparent !important;
+  border: 2px solid #2e3348 !important;
+  color: #f0f0f0 !important;
+}
+
+.btn-outline:hover, [class*="outline"]:hover {
+  border-color: #f0a500 !important;
+  color: #f0a500 !important;
+}
+
+/* === FORMS === */
+input, textarea, select {
+  background-color: #1e2130 !important;
+  border: 1px solid #2e3348 !important;
+  border-radius: 8px !important;
+  color: #f0f0f0 !important;
+  padding: 12px 16px !important;
+  font-size: 15px !important;
+  width: 100% !important;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #f0a500 !important;
+  outline: none !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #505570 !important;
+}
+
+/* === PRICING / HIGHLIGHT ELEMENTS === */
+.price, .pricing-price, [class*="price"] {
+  color: #f0a500 !important;
+  font-size: 48px !important;
+  font-weight: 800 !important;
+}
+
+/* === ACCENT COLOR OVERRIDES === */
+.accent, .highlight, .featured, [class*="accent"], [class*="highlight"] {
+  color: #f0a500 !important;
+}
+
+/* Featured card border */
+.featured, [class*="featured"], [class*="popular"] {
+  border-color: #f0a500 !important;
+  background-color: #1a1e2e !important;
+}
+
+/* === DIVIDERS / BORDERS === */
+hr, .divider {
+  border-color: #1e2130 !important;
+}
+
+/* === FOOTER === */
+footer, .footer {
+  background-color: #0a0c12 !important;
+  border-top: 1px solid #1e2130 !important;
+  padding: 40px 20px !important;
+  text-align: center !important;
+  color: #a0a8c0 !important;
+}
+
+/* === ICONS & CHECKMARKS === */
+.check, .checkmark, [class*="check"] {
+  color: #f0a500 !important;
+}
+
+/* === MOBILE === */
+@media (max-width: 768px) {
+  nav, header {
+    padding: 16px 20px !important;
+  }
+
+  section, .section {
+    padding: 40px 16px !important;
+  }
+
+  h1 { font-size: 32px !important; }
+  h2 { font-size: 26px !important; }
+
+  .card, [class*="card"] {
+    padding: 24px 20px !important;
+  }
+}
