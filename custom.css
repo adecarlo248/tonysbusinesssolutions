@@ -1,6 +1,6 @@
 /* =============================================
    Tony's Business Solutions — Custom CSS
-   Dark Navy + Orange Theme
+   Dark Navy + Electric Blue Theme
    ============================================= */
 
 /* === GLOBAL === */
@@ -35,11 +35,11 @@ p, li, span {
 
 /* === LINKS === */
 a {
-  color: #f0a500 !important;
+  color: #00aaff !important;
   text-decoration: none !important;
 }
 
-a:hover { color: #d4911a !important; }
+a:hover { color: #0077cc !important; }
 
 /* === NAVIGATION === */
 nav, header, .header, .nav, .navbar {
@@ -89,7 +89,7 @@ input[type="submit"],
 input[type="button"],
 [class*="btn"],
 [class*="button"] {
-  background-color: #f0a500 !important;
+  background-color: #00aaff !important;
   color: #0f1117 !important;
   border: none !important;
   border-radius: 8px !important;
@@ -105,7 +105,7 @@ button:hover,
 .btn:hover,
 [class*="btn"]:hover,
 [class*="button"]:hover {
-  background-color: #d4911a !important;
+  background-color: #0077cc !important;
 }
 
 /* Secondary/outline button */
@@ -116,8 +116,8 @@ button:hover,
 }
 
 .btn-outline:hover, [class*="outline"]:hover {
-  border-color: #f0a500 !important;
-  color: #f0a500 !important;
+  border-color: #00aaff !important;
+  color: #00aaff !important;
 }
 
 /* === FORMS === */
@@ -132,7 +132,7 @@ input, textarea, select {
 }
 
 input:focus, textarea:focus, select:focus {
-  border-color: #f0a500 !important;
+  border-color: #00aaff !important;
   outline: none !important;
 }
 
@@ -142,19 +142,19 @@ input::placeholder, textarea::placeholder {
 
 /* === PRICING / HIGHLIGHT ELEMENTS === */
 .price, .pricing-price, [class*="price"] {
-  color: #f0a500 !important;
+  color: #00aaff !important;
   font-size: 48px !important;
   font-weight: 800 !important;
 }
 
 /* === ACCENT COLOR OVERRIDES === */
 .accent, .highlight, .featured, [class*="accent"], [class*="highlight"] {
-  color: #f0a500 !important;
+  color: #00aaff !important;
 }
 
 /* Featured card border */
 .featured, [class*="featured"], [class*="popular"] {
-  border-color: #f0a500 !important;
+  border-color: #00aaff !important;
   background-color: #1a1e2e !important;
 }
 
@@ -174,7 +174,7 @@ footer, .footer {
 
 /* === ICONS & CHECKMARKS === */
 .check, .checkmark, [class*="check"] {
-  color: #f0a500 !important;
+  color: #00aaff !important;
 }
 
 /* === MOBILE === */
