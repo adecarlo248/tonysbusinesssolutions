@@ -445,6 +445,9 @@
     .footer-logo { justify-content: center; margin-bottom: 14px; }
     .footer-logo img { height: 56px; filter: drop-shadow(0 0 10px var(--blue-glow)); }
     footer p { color: var(--muted); font-size: 14px; margin-bottom: 6px; }
+    .social-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin: 18px 0 10px; }
+    .social-link { min-width: 168px; padding: 12px 18px; border-radius: 999px; border: 1px solid rgba(0,170,255,0.34); color: var(--steel); background: rgba(0,170,255,0.06); font-weight: 800; font-size: 14px; transition: 0.2s ease; }
+    .social-link:hover { color: #fff; border-color: var(--blue); box-shadow: 0 0 22px rgba(0,170,255,0.22); transform: translateY(-2px); }
     .footer-bottom { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--border); color: #3a4050; font-size: 12px; }
 
     .glow-line { position: relative; z-index: 1; opacity: 0.42; }
@@ -467,8 +470,8 @@
       .nav-cta { padding: 9px 13px; font-size: 12px; }
       .hero { padding: 66px 18px 58px; }
       .hero h1 { font-size: 44px; }
-      .hero-buttons, .cta-buttons { flex-direction: column; }
-      .btn-primary, .btn-secondary, .cta-main { width: 100%; }
+      .hero-buttons, .cta-buttons, .social-links { flex-direction: column; }
+      .btn-primary, .btn-secondary, .cta-main, .social-link { width: 100%; }
       .section, .wide-section { width: min(100% - 32px, 1100px); padding: 64px 0; }
       .hero-panel { padding: 20px; border-radius: 22px; }
       .logo-mark { width: 104px; height: 104px; }
@@ -703,6 +706,10 @@
       <div class="brand-text">Tony's<span>Business Solutions</span></div>
     </div>
     <p>Follow-up systems for trades and service businesses.</p>
+    <div class="social-links" aria-label="Follow Tony's Business Solutions on social media">
+      <a href="https://www.instagram.com/tonysbusinesssolutions/" target="_blank" rel="noopener" class="social-link">Follow us on Instagram</a>
+      <a href="https://www.facebook.com/61589778803327" target="_blank" rel="noopener" class="social-link">Follow us on Facebook</a>
+    </div>
     <p>Ontario, Canada &nbsp;|&nbsp; <a href="tel:17052437767">(705) 243-7767</a> &nbsp;|&nbsp; <a href="mailto:tony@tonysbusinesssolutions.ca">tony@tonysbusinesssolutions.ca</a></p>
     <p><a href="https://g.page/r/CbmvjH6WBvnGEAE/review" target="_blank" class="btn-secondary">Leave Us a Review</a></p>
     <div class="footer-bottom">© 2026 Tony's Business Solutions. All rights reserved.</div>
